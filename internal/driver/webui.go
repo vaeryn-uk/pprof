@@ -18,6 +18,7 @@ import (
 	"bytes"
 	"fmt"
 	"html/template"
+	"log"
 	"net"
 	"net/http"
 	gourl "net/url"
@@ -179,6 +180,7 @@ func defaultWebServer(args *plugin.HTTPServerArgs) error {
 	}
 	isLocal := isLocalhost(args.Host)
 	handler := http.HandlerFunc(func(w http.ResponseWriter, req *http.Request) {
+		log.Println("Received request")
 		if isLocal {
 			// Only allow local clients
 			host, _, err := net.SplitHostPort(req.RemoteAddr)

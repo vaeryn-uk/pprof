@@ -137,7 +137,7 @@ func serveWebInterface(hostport string, p *profile.Profile, o *plugin.Options, d
 
 	url := "http://" + args.Hostport
 
-	o.UI.Print("Serving web UI on ", url)
+	o.UI.Print("Serving web UI on (local-only) ", url)
 
 	if o.UI.WantBrowser() && !disableBrowser {
 		go openBrowser(url, o)
